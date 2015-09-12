@@ -1,0 +1,47 @@
+<div class="rterre" ng-include="'app/components/app.status/app.status.html'"></div>
+<table class="table" ng-controller="UsersCtrl">
+    <thead>
+    <tr>
+        <th ng-click="balanceSortFunc('name')" style="cursor: pointer;">
+            Full name
+            <span ng-class="{'glyphicon glyphicon-triangle-bottom' : sortDesc,
+            'glyphicon glyphicon-triangle-top': !sortDesc}" ng-show="sort == 'name'"></span>
+        </th>
+        <th ng-click="balanceSortFunc('age')" style="cursor: pointer;">
+            Age
+            <span ng-class="{'glyphicon glyphicon-triangle-bottom' : sortDesc,
+            'glyphicon glyphicon-triangle-top': !sortDesc}" ng-show="sort == 'age'"></span>
+        </th>
+        <th ng-click="balanceSortFunc('eyeColor')" style="cursor: pointer;">
+            EyeColor
+            <span ng-class="{'glyphicon glyphicon-triangle-bottom' : sortDesc,
+            'glyphicon glyphicon-triangle-top': !sortDesc}" ng-show="sort == 'eyeColor'"></span>
+        </th>
+        <th ng-click="balanceSortFunc('gender')" style="cursor: pointer;">
+            Gender
+            <span ng-class="{'glyphicon glyphicon-triangle-bottom' : sortDesc,
+            'glyphicon glyphicon-triangle-top': !sortDesc}" ng-show="sort == 'gender'"></span>
+        </th>
+        <th ng-click="balanceSortFunc('balance')" style="cursor: pointer;">
+            Balance
+            <span ng-class="{'glyphicon glyphicon-triangle-bottom' : sortDesc,
+            'glyphicon glyphicon-triangle-top': !sortDesc}" ng-show="sort == 'balance'"></span>
+        </th>
+        <th ng-click="balanceSortFunc('email')" style="cursor: pointer;">
+            Email
+            <span ng-class="{'glyphicon glyphicon-triangle-bottom' : sortDesc,
+            'glyphicon glyphicon-triangle-top': !sortDesc}" ng-show="sort == 'email'"></span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in usersList | orderBy: sort : sortDesc">
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.eyeColor }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.balance }}</td>
+        <td>{{ user.email }}</td>
+    </tr>
+    </tbody>
+</table>
